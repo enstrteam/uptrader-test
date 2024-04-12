@@ -1,0 +1,38 @@
+{% load static %}
+{% load sass_tags %}
+{% load maintags %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% sass_src 'testapp/style.scss' %}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <div class="wrapper">
+        {% block header %}
+            <header class="header">
+                {% show_title 'Django tree menu'%}
+                {% block breadcrumbs %}
+                {% endblock breadcrumbs %}   
+                {% block menu %}
+                    <div class="header__menu-list">
+                        <div class="header__menu menu">
+                                {% draw_menu 'Menu1' %}
+                        </div>
+                        <div class="header__menu menu">              
+                                {% draw_menu 'Menu2' %}
+                        </div>    
+                    </div>
+                {% endblock menu %}
+            </header>
+        {% endblock header %}
+    </div>       
+</body>
+</html>
